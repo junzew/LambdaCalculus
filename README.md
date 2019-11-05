@@ -179,5 +179,10 @@ Y-combinator
 TODO
 
 ### References
-* Lambda Calculus: PyCon 2019 Tutorial [(Screencast)](https://www.youtube.com/watch?v=5C6sv7-eTKg)
-* Programming Languages and Lambda Calculi [(Course notes)](http://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf)
+* [(Screencast)](https://www.youtube.com/watch?v=5C6sv7-eTKg) Lambda Calculus: PyCon 2019 Tutorial
+* [(Course notes)](http://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf) Felleisen, Matthias & Flatt, Matthew. (2007). Programming Languages and Lambda Calculi.
+* (Book) Church, A. (1941). The calculi of lambda-conversion. Princeton;London;: Princeton university press.
+*  [(Paper)](https://www.irif.fr/~mellies/mpri/mpri-ens/articles/moggi-computational-lambda-calculus-and-monads.pdf) Moggi, E. (1989). Computational lambda-calculus and monads. Paper presented at the 14-23. doi:10.1109/LICS.1989.39155.
+* (Book) Barendregt, H. P., Dekkers, W., Statman, R., & Cambridge Core EBA eBooks Complete Collection. (2013). Lambda calculus with types. Cambridge;New York;: Cambridge University Press. doi:10.1017/CBO9781139032636
+* [(Article)](http://matt.might.net/articles/compiling-up-to-lambda-calculus/) Compiling to lambda-calculus: Turtles all the way down
+* [Blog posts](http://goodmath.blogspot.com/2006/06/lamda-calculus-index.html) on lambda calculus from Good Math/Bad Math
