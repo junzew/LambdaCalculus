@@ -179,5 +179,18 @@ Y-combinator
 TODO
 
 ### References
-* Lambda Calculus: PyCon 2019 Tutorial [(Screencast)](https://www.youtube.com/watch?v=5C6sv7-eTKg)
-* Programming Languages and Lambda Calculi [(Course notes)](http://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf)
+#### Academic
+1. (Book) Church, A. (1941). The calculi of lambda-conversion. Princeton;London;: Princeton university press.
+2. [(Book)]((https://www.sciencedirect.com/bookseries/studies-in-logic-and-the-foundations-of-mathematics/vol/103)) The Lambda Calculus Its Syntax and Semantics. H.P. BARENDREGT
+3. [(Paper)] The Impact of the Lambda Calculus in Logic and Computer Science. Henk Barendregt
+4. [(Paper)](https://homepages.inf.ed.ac.uk/gdp/publications/cbn_cbv_lambda.pdf) Call-by-Name, Call-by-Value, and The Lambda Calculus. Gordon Plotkin
+5. [(Course notes, chapter 4)](http://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf) Felleisen, Matthias & Flatt, Matthew. (2007). Programming Languages and Lambda Calculi.
+6. [(Paper)](https://www.sciencedirect.com/science/article/pii/0304397589900698) A Syntactic Theory of Sequential State. Matthias Felleisen and Daniel Friedman
+7.  [(Paper)](https://www.irif.fr/~mellies/mpri/mpri-ens/articles/moggi-computational-lambda-calculus-and-monads.pdf) Moggi, E. (1989). Computational lambda-calculus and monads. Paper presented at the 14-23. doi:10.1109/LICS.1989.39155.
+8. (Book) Barendregt, H. P., Dekkers, W., Statman, R., & Cambridge Core EBA eBooks Complete Collection. (2013). Lambda calculus with types. Cambridge;New York;: Cambridge University Press. doi:10.1017/CBO9781139032636
+9. (Book) Type theory and Formal Proofs. Ron Nederpelt and Herman Geuvers
+
+#### Non-academic
+10. [(Screencast)](https://www.youtube.com/watch?v=5C6sv7-eTKg) Lambda Calculus: PyCon 2019 Tutorial
+11. [(Article)](http://matt.might.net/articles/compiling-up-to-lambda-calculus/) Compiling to lambda-calculus: Turtles all the way down
+12. [Blog posts](http://goodmath.blogspot.com/2006/06/lamda-calculus-index.html) on lambda calculus from Good Math/Bad Math
