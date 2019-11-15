@@ -182,7 +182,7 @@ TODO
 #### Academic
 1. (Book) Church, A. (1941). The calculi of lambda-conversion. Princeton;London;: Princeton university press.
 2. [(Book)]((https://www.sciencedirect.com/bookseries/studies-in-logic-and-the-foundations-of-mathematics/vol/103)) The Lambda Calculus Its Syntax and Semantics. H.P. BARENDREGT
-3. [(Paper)] The Impact of the Lambda Calculus in Logic and Computer Science. Henk Barendregt
+3. [(Paper)](http://www-users.mat.umk.pl/~adwid/materialy/doc/church.pdf) The Impact of the Lambda Calculus in Logic and Computer Science. Henk Barendregt
 4. [(Paper)](https://homepages.inf.ed.ac.uk/gdp/publications/cbn_cbv_lambda.pdf) Call-by-Name, Call-by-Value, and The Lambda Calculus. Gordon Plotkin
 5. [(Course notes, chapter 4)](http://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf) Felleisen, Matthias & Flatt, Matthew. (2007). Programming Languages and Lambda Calculi.
 6. [(Paper)](https://www.sciencedirect.com/science/article/pii/0304397589900698) A Syntactic Theory of Sequential State. Matthias Felleisen and Daniel Friedman
