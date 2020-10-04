@@ -10,10 +10,10 @@
 ```
 ### Examples
 ```
- x                       
- (x y)                            
- (λx.x)                  
- (λy.(λz.y))            
+ x
+ (x y)
+ (λx.x)
+ (λy.(λz.y))
  ((λy.(y y)) (λy.(y y)))
 ```
 
@@ -31,7 +31,7 @@
 multi-arg function to single arg functions. The process is known as Currying (c.f. Haskell Curry).
 ```
 #lang racket
-((λ (x y) (+ x y)) 3 4)  
+((λ (x y) (+ x y)) 3 4)
 ;; is equivalent to
 (((λ (x) (λ (y) (+ x y))) 3) 4)
 ```
@@ -124,6 +124,7 @@ https://wiki.haskell.org/Peano_numbers
 
 ### Arithmetics
 ```
+;; Addition
 #;
 (define PLUS (λ (m)
                (λ (n)
@@ -139,8 +140,9 @@ https://wiki.haskell.org/Peano_numbers
 ((((PLUS FOUR) THREE) _) 0)
 (print "2 + 3 = ")
 ((((PLUS (SUCC (SUCC ZERO))) (SUCC (SUCC (SUCC ZERO)))) _) 0)
-
-;; multiplication (repeated addition)
+```
+```
+;; Multiplication (repeated addition)
 (define MULT (λ (m)
                (λ (n)
                  ((m (PLUS n)) ZERO))))
@@ -149,19 +151,46 @@ https://wiki.haskell.org/Peano_numbers
 ((((MULT TWO) TWO) _) 0)
 (print "3 x 4 = ")
 ((((MULT THREE) FOUR) _) 0)
-
-;; exponentiation
+```
+```
+;; Exponentiation
 (define EXP (λ (m)
               (λ (n)
                 (n m))))
 ((((EXP THREE) FOUR) _) 0)
 ((((EXP TWO) SIX) _) 0)
 ```
+
+For predecessor and subtraction, we need to introduce pairs first
+
+```
+;; Encoding pairs and lists
+;; we want the ability to 'select' from two paired items
+(define CONS (λ (a) (λ (b) (λ (s) ((s a) b)))))
+(define CAR (λ (p) (p TRUE)))
+(define CDR (λ (p) (p FALSE)))
+(define NIL FALSE) ;; denote empty list
+```
+```
+;; Predecessor
+;; the "wisdom tooth trick"
+(define T (λ (p) ((CONS (SUCC (CAR p))) (CAR p))))
+(define PRED (λ (n) (CDR ((n T) ((CONS ZERO) ZERO)))))
+```
+```
+;; Subtraction
+(define SUB (λ (x) (λ (y) ((y PRED) x))))
+```
+Division can be defined recursively (see below).
+
 ### Predicates
 ```
 (define ZERO? (λ (n); if n is a natural number
                 ((n (λ (x) FALSE)); apply this function to TRUE n times
                     TRUE))); if apply 0 times then it's TRUE
+(define LEQ? (λ (m) (λ (n) (ZERO? ((SUB m) n)))))
+(define GT? (λ (m) (λ (n) (NOT ((LEQ? m) n)))))
+(define EQ? (λ (m) (λ (n) ((AND ((LEQ? m) n)) ((LEQ? n) m)))))
 
 ;; a somewhat interesting program:
 ; (if (zero? (+ 1 1)) (+ 1 2) (+ 3 4))
@@ -169,14 +198,61 @@ https://wiki.haskell.org/Peano_numbers
   ((((PLUS ONE) TWO) _) 0))
  ((((PLUS THREE) FOUR) _) 0))
 ```
-### Encoding pairs
-TODO
-
 
 ### Recursion
 Y-combinator
 
-TODO
+```
+;; In Racket, recursive procedures can be defined using self-reference
+;; However, in λ-calculus, functions are anonymous
+#;
+(define factorial
+  (λ (n)
+    (if (zero? n)
+        1
+        (* n (factorial (sub1 n))))))
+#;
+(define (divide n m)
+  (if (>= n m)
+      (add1 (divide (- n m) m))
+      0))
+```
+```
+;; Y combinator
+;; Y f = f (Y f)
+(define Y (λ (f) ((λ (x) (f (x x))) (λ (x) (f (x x))))))
+```
+```
+
+(define factorial (Y (λ (f)
+                       (λ (n)
+                         (if (zero? n)
+                             1
+                             (* n (f (sub1 n))))))))
+
+(define FACTORIAL (Y (λ (f)
+                       (λ (n)
+                         (((ZERO? n)
+                           ONE)
+                          ((MULT n) (f (PRED n))))))))
+
+(define divide
+  (Y (λ (f)
+       (λ (n)
+         (λ (m)
+           (if (>= n m)
+               (add1 ((f (- n m)) m))
+               0))))))
+
+(define DIVIDE
+  (Y (λ (f)
+       (λ (n)
+         (λ (m)
+           ((((OR ((GT? n) m)) ((EQ? n) m))
+             (SUCC ((f ((SUB n) m)) m)))
+            ZERO))))))
+```
+
 
 ### References
 #### Academic
